@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NumberRecognizer
@@ -15,6 +8,18 @@ namespace NumberRecognizer
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void BLearning_Click(object sender, EventArgs e)
+        {
+            var folderBrowserDialog = new FolderBrowserDialog();
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                var path = folderBrowserDialog.SelectedPath;
+                var trainingForm = new TrainingForm(path);
+                trainingForm.ShowDialog();
+            }
         }
     }
 }
